@@ -7,7 +7,7 @@ const ContactPage = () => {
   
   return (
     <PageLayout>
-      <section className="min-h-screen flex items-center justify-center px-6 py-20">
+      <section className="min-h-[80vh] flex items-center justify-center px-6 py-16 pt-24">
         <div className="w-full max-w-4xl">
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-6xl font-bold mb-4">

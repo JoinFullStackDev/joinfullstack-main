@@ -381,7 +381,7 @@ const Process = () => {
       <ProcessProgress />
 
       {/* Hero Section */}
-      <section className="relative min-h-[70vh] flex items-center justify-center px-6 overflow-hidden">
+      <section className="relative min-h-[50vh] flex items-center justify-center px-6 pt-24 overflow-hidden">
         {/* Floating Background Elements */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <div className="floating-element absolute top-20 left-10 w-32 h-32 rounded-full bg-accent/5 blur-3xl" />

@@ -125,8 +125,8 @@ const Services = () => {
     <PageLayout>
       <ServicesHero />
       
-      <section className="relative py-16 px-6">
-        <div className="space-y-16 lg:space-y-24">
+      <section className="relative py-12 px-6">
+        <div className="space-y-12 lg:space-y-16">
           {services.map((service, index) => (
             <ServiceCard key={service.id} {...service} index={index} />
           ))}

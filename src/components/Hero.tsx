@@ -97,20 +97,20 @@ export const Hero = () => {
     <section 
       id="hero" 
       ref={heroRef}
-      className="relative min-h-[80vh] md:min-h-screen flex items-center justify-center px-6 pt-16 md:pt-0 overflow-hidden"
+      className="relative min-h-[70vh] md:min-h-[85vh] flex items-center justify-center px-6 pt-16 md:pt-0 overflow-hidden"
     >
       <div className="relative z-10 max-w-5xl mx-auto text-center">
         <h1 
           ref={headlineRef}
           className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 text-balance leading-tight"
         >
-          <span className="hero-word inline-block">Architects</span>{' '}
-          <span className="hero-word inline-block">of</span>{' '}
+          <span className="hero-word inline-block">Software</span>{' '}
+          <span className="hero-word inline-block">That</span>{' '}
           <span className="hero-word inline-block text-accent">
-            Intelligent
+            Actually
           </span>{' '}
           <span className="hero-word inline-block text-accent">
-            Systems
+            Ships
           </span>
         </h1>
         
@@ -118,7 +118,7 @@ export const Hero = () => {
           ref={subtitleRef}
           className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-3xl mx-auto text-balance"
         >
-          From concept to compliance-grade software — mapped, engineered, and assured.
+          End-to-end product development for healthcare, fintech, and regulated industries.
         </p>
 
         {/* Stats Row */}
