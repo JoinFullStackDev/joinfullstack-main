@@ -8,14 +8,22 @@ import { FeaturedTestimonial } from '@/components/FeaturedTestimonial';
 import { Deliverables } from '@/components/Deliverables';
 import { Contact } from '@/components/Contact';
 import { useGsap } from '@/hooks/useGsap';
-import { usePageTitle } from '@/hooks/usePageTitle';
+import { SEO } from '@/components/SEO';
+import { seoMetadata } from '@/lib/seo/metadata';
+import { getOrganizationSchema, getProfessionalServiceSchema } from '@/lib/seo/schemas';
 
 const Index = () => {
   useGsap();
-  usePageTitle('Architects of Intelligent Systems');
 
   return (
     <PageLayout showMapAnimation={false}>
+      <SEO
+        title={seoMetadata.home.title}
+        description={seoMetadata.home.description}
+        keywords={seoMetadata.home.keywords}
+        canonical="https://joinfullstack.com"
+        structuredData={[getOrganizationSchema(), getProfessionalServiceSchema()]}
+      />
       <Hero />
       <LogoRail />
       <TechStack />

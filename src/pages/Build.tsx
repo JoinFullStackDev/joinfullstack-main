@@ -6,6 +6,9 @@ import { PhaseDetailCard } from '@/components/PhaseDetailCard';
 import { PhaseMetrics } from '@/components/PhaseMetrics';
 import { DeliverablesChecklist } from '@/components/DeliverablesChecklist';
 import { Contact } from '@/components/Contact';
+import { SEO } from '@/components/SEO';
+import { seoMetadata } from '@/lib/seo/metadata';
+import { getServiceSchema, getBreadcrumbSchema } from '@/lib/seo/schemas';
 import { 
   Code2,
   Layers,
@@ -79,6 +82,24 @@ const Build = () => {
 
   return (
     <PageLayout>
+      <SEO
+        title={seoMetadata.build.title}
+        description={seoMetadata.build.description}
+        keywords={seoMetadata.build.keywords}
+        canonical="https://joinfullstack.com/services/build"
+        structuredData={[
+          getServiceSchema({
+            name: 'Build',
+            description: seoMetadata.build.description,
+            url: '/services/build',
+          }),
+          getBreadcrumbSchema([
+            { name: 'Home', url: '/' },
+            { name: 'Services', url: '/services' },
+            { name: 'Build', url: '/services/build' },
+          ]),
+        ]}
+      />
       <ServiceHero
         phase="Phase 05"
         title="Build"

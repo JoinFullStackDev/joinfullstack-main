@@ -4,7 +4,9 @@ import { TeamMemberCard } from '@/components/TeamMemberCard';
 import { TeamMemberModal } from '@/components/TeamMemberModal';
 import { teamMembers, TeamMember } from '@/data/teamMembers';
 import { Contact } from '@/components/Contact';
-import { usePageTitle } from '@/hooks/usePageTitle';
+import { SEO } from '@/components/SEO';
+import { seoMetadata } from '@/lib/seo/metadata';
+import { getOrganizationSchema, getBreadcrumbSchema, getPersonSchema } from '@/lib/seo/schemas';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Users, Award, Target, Zap } from 'lucide-react';
@@ -12,7 +14,6 @@ import { Users, Award, Target, Zap } from 'lucide-react';
 gsap.registerPlugin(ScrollTrigger);
 
 const Team = () => {
-  usePageTitle('Our Team');
   const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
 
   // Separate members by department
@@ -99,10 +100,34 @@ const Team = () => {
     };
   }, []);
 
+  // Generate Person schemas for leadership members
+  const leadershipSchemas = leadership.map((member) =>
+    getPersonSchema({
+      name: member.name,
+      jobTitle: member.title,
+      sameAs: member.linkedInUrl ? [member.linkedInUrl] : [],
+    })
+  );
+
   return (
     <PageLayout>
+      <SEO
+        title={seoMetadata.team.title}
+        description={seoMetadata.team.description}
+        keywords={seoMetadata.team.keywords}
+        canonical="https://joinfullstack.com/about/team"
+        structuredData={[
+          getOrganizationSchema(),
+          getBreadcrumbSchema([
+            { name: 'Home', url: '/' },
+            { name: 'About', url: '/about' },
+            { name: 'Our Team', url: '/about/team' },
+          ]),
+          ...leadershipSchemas,
+        ]}
+      />
       {/* Hero Section */}
-      <section className="relative py-16 md:py-24 px-6 pt-24">
+      <section className="relative py-16 md:py-24 px-6 pt-28 md:pt-24">
         <div className="hero-content max-w-4xl mx-auto text-center space-y-6">
           <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-foreground to-foreground/60 bg-clip-text text-transparent">
             Meet Our Team

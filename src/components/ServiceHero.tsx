@@ -22,7 +22,7 @@ export const ServiceHero = ({
   secondaryCTA,
 }: ServiceHeroProps) => {
   return (
-    <section className="relative min-h-[50vh] flex items-center justify-center px-6 pt-24 pb-12">
+    <section className="relative min-h-[50vh] flex items-center justify-center px-6 pt-28 md:pt-24 pb-12">
       <div className="max-w-5xl mx-auto text-center animate-fade-in">
         {/* Phase Badge */}
         <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full border border-accent/20 bg-accent/5 mb-8">

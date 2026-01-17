@@ -3,11 +3,11 @@ import { useEffect } from "react";
 import { PageLayout } from "@/components/PageLayout";
 import { Button } from "@/components/ui/button";
 import { Home, ArrowLeft } from "lucide-react";
-import { usePageTitle } from "@/hooks/usePageTitle";
+import { SEO } from "@/components/SEO";
+import { seoMetadata } from "@/lib/seo/metadata";
 
 const NotFound = () => {
   const location = useLocation();
-  usePageTitle('Page Not Found');
 
   useEffect(() => {
     console.error("404 Error: User attempted to access non-existent route:", location.pathname);
@@ -15,6 +15,11 @@ const NotFound = () => {
 
   return (
     <PageLayout>
+      <SEO
+        title={seoMetadata.notFound.title}
+        description={seoMetadata.notFound.description}
+        noindex={true}
+      />
       <div className="flex min-h-[80vh] items-center justify-center px-6">
         <div className="text-center max-w-md">
           <div className="text-8xl font-bold text-accent mb-4">404</div>

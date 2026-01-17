@@ -6,6 +6,9 @@ import { PhaseDetailCard } from '@/components/PhaseDetailCard';
 import { PhaseMetrics } from '@/components/PhaseMetrics';
 import { DeliverablesChecklist } from '@/components/DeliverablesChecklist';
 import { Contact } from '@/components/Contact';
+import { SEO } from '@/components/SEO';
+import { seoMetadata } from '@/lib/seo/metadata';
+import { getServiceSchema, getBreadcrumbSchema } from '@/lib/seo/schemas';
 import { 
   Shield,
   Play,
@@ -81,6 +84,24 @@ const QA = () => {
 
   return (
     <PageLayout>
+      <SEO
+        title={seoMetadata.qa.title}
+        description={seoMetadata.qa.description}
+        keywords={seoMetadata.qa.keywords}
+        canonical="https://joinfullstack.com/services/qa"
+        structuredData={[
+          getServiceSchema({
+            name: 'QA & Automation',
+            description: seoMetadata.qa.description,
+            url: '/services/qa',
+          }),
+          getBreadcrumbSchema([
+            { name: 'Home', url: '/' },
+            { name: 'Services', url: '/services' },
+            { name: 'QA & Automation', url: '/services/qa' },
+          ]),
+        ]}
+      />
       <ServiceHero
         phase="Phase 06"
         title="QA & Automation"

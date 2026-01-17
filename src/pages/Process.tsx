@@ -6,7 +6,9 @@ import { ProcessPhaseCard } from '@/components/process/ProcessPhaseCard';
 import { ProcessStats } from '@/components/process/ProcessStats';
 import { ProcessProgress } from '@/components/process/ProcessProgress';
 import { Contact } from '@/components/Contact';
-import { usePageTitle } from '@/hooks/usePageTitle';
+import { SEO } from '@/components/SEO';
+import { seoMetadata } from '@/lib/seo/metadata';
+import { getOrganizationSchema, getBreadcrumbSchema } from '@/lib/seo/schemas';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -15,18 +17,14 @@ if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
 }
 const Process = () => {
-  usePageTitle('Our Process');
   
   useEffect(() => {
     // Check for reduced motion preference
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) return;
-    const initAnimations = () => {
-      console.log('Initializing animations...');
-
-      // Kill all existing ScrollTriggers
-      ScrollTrigger.getAll().forEach(t => t.kill());
-
+    
+    // Use GSAP context to scope all animations to this component
+    const ctx = gsap.context(() => {
       // Hero title animation
       gsap.fromTo('.hero-title', {
         opacity: 0,
@@ -37,6 +35,7 @@ const Process = () => {
         duration: 1,
         ease: 'power3.out'
       });
+      
       gsap.fromTo('.hero-subtitle', {
         opacity: 0,
         y: 30
@@ -66,7 +65,7 @@ const Process = () => {
         }
       });
 
-      // Phase badges pulse animation
+      // Phase badges animation
       const badges = document.querySelectorAll('.process-badge');
       badges.forEach((badge, index) => {
         gsap.fromTo(badge, {
@@ -119,7 +118,7 @@ const Process = () => {
       // Animate insight cards (opposite direction)
       gsap.utils.toArray<HTMLElement>('.process-insight').forEach(insight => {
         const index = parseInt(insight.dataset.index || '0');
-        const align = index % 2 === 0 ? 'right' : 'left'; // Opposite of main card
+        const align = index % 2 === 0 ? 'right' : 'left';
         gsap.fromTo(insight, {
           opacity: 0,
           x: align === 'left' ? -30 : 30
@@ -156,7 +155,6 @@ const Process = () => {
               setTimeout(() => {
                 item.style.opacity = '1';
                 item.style.transform = 'translateX(0)';
-                // Animate checkmark
                 const check = item.querySelector('.deliverable-check');
                 if (check) {
                   check.classList.remove('opacity-0', 'scale-0');
@@ -164,24 +162,6 @@ const Process = () => {
                 }
               }, idx * 100);
             }
-          }
-        });
-      });
-
-      // Animate stat cards
-      gsap.utils.toArray<HTMLElement>('.stat-card').forEach(card => {
-        gsap.fromTo(card, {
-          opacity: 0,
-          scale: 0.9
-        }, {
-          opacity: 1,
-          scale: 1,
-          duration: 0.5,
-          ease: 'back.out(1.7)',
-          scrollTrigger: {
-            trigger: card,
-            start: 'top 75%',
-            toggleActions: 'play none none reverse'
           }
         });
       });
@@ -199,21 +179,12 @@ const Process = () => {
         });
       });
 
-      // Debug logging
-      console.log('Process cards:', document.querySelectorAll('.process-card').length);
-      console.log('Process insights:', document.querySelectorAll('.process-insight').length);
-      console.log('Deliverable items:', document.querySelectorAll('.deliverable-item').length);
-      console.log('Stat cards:', document.querySelectorAll('.stat-card').length);
-      console.log('Process badges:', document.querySelectorAll('.process-badge').length);
-
       // Refresh ScrollTrigger after all animations are set up
       ScrollTrigger.refresh();
-    };
-    const timeoutId = setTimeout(initAnimations, 100);
-    return () => {
-      clearTimeout(timeoutId);
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    };
+    });
+    
+    // Cleanup only this component's animations
+    return () => ctx.revert();
   }, []);
   const processStats = [{
     label: 'Success Rate',
@@ -378,10 +349,24 @@ const Process = () => {
     successRate: '98%'
   }];
   return <PageLayout>
+      <SEO
+        title={seoMetadata.process.title}
+        description={seoMetadata.process.description}
+        keywords={seoMetadata.process.keywords}
+        canonical="https://joinfullstack.com/about/process"
+        structuredData={[
+          getOrganizationSchema(),
+          getBreadcrumbSchema([
+            { name: 'Home', url: '/' },
+            { name: 'About', url: '/about' },
+            { name: 'Our Process', url: '/about/process' },
+          ]),
+        ]}
+      />
       <ProcessProgress />
 
       {/* Hero Section */}
-      <section className="relative min-h-[50vh] flex items-center justify-center px-6 pt-24 overflow-hidden">
+      <section className="relative min-h-[50vh] flex items-center justify-center px-6 pt-28 md:pt-24 overflow-hidden">
         {/* Floating Background Elements */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <div className="floating-element absolute top-20 left-10 w-32 h-32 rounded-full bg-accent/5 blur-3xl" />

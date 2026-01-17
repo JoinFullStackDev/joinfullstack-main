@@ -4,11 +4,12 @@ import { ServicesHero } from '@/components/ServicesHero';
 import { ServiceCard } from '@/components/ServiceCard';
 import { Contact } from '@/components/Contact';
 import { useGsap } from '@/hooks/useGsap';
-import { usePageTitle } from '@/hooks/usePageTitle';
+import { SEO } from '@/components/SEO';
+import { seoMetadata } from '@/lib/seo/metadata';
+import { getOrganizationSchema, getBreadcrumbSchema } from '@/lib/seo/schemas';
 
 const Services = () => {
   useGsap();
-  usePageTitle('Services');
 
   const services = [
     {
@@ -123,6 +124,19 @@ const Services = () => {
 
   return (
     <PageLayout>
+      <SEO
+        title={seoMetadata.services.title}
+        description={seoMetadata.services.description}
+        keywords={seoMetadata.services.keywords}
+        canonical="https://joinfullstack.com/services"
+        structuredData={[
+          getOrganizationSchema(),
+          getBreadcrumbSchema([
+            { name: 'Home', url: '/' },
+            { name: 'Services', url: '/services' },
+          ]),
+        ]}
+      />
       <ServicesHero />
       
       <section className="relative py-12 px-6">

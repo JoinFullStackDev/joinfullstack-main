@@ -6,6 +6,9 @@ import { PhaseDetailCard } from '@/components/PhaseDetailCard';
 import { PhaseMetrics } from '@/components/PhaseMetrics';
 import { DeliverablesChecklist } from '@/components/DeliverablesChecklist';
 import { Contact } from '@/components/Contact';
+import { SEO } from '@/components/SEO';
+import { seoMetadata } from '@/lib/seo/metadata';
+import { getServiceSchema, getBreadcrumbSchema } from '@/lib/seo/schemas';
 import { 
   FileText,
   CheckSquare,
@@ -78,6 +81,24 @@ const AnalysisUserStories = () => {
 
   return (
     <PageLayout>
+      <SEO
+        title={seoMetadata.analysisUserStories.title}
+        description={seoMetadata.analysisUserStories.description}
+        keywords={seoMetadata.analysisUserStories.keywords}
+        canonical="https://joinfullstack.com/services/analysis-user-stories"
+        structuredData={[
+          getServiceSchema({
+            name: 'Analysis & User Stories',
+            description: seoMetadata.analysisUserStories.description,
+            url: '/services/analysis-user-stories',
+          }),
+          getBreadcrumbSchema([
+            { name: 'Home', url: '/' },
+            { name: 'Services', url: '/services' },
+            { name: 'Analysis & User Stories', url: '/services/analysis-user-stories' },
+          ]),
+        ]}
+      />
       <ServiceHero
         phase="Phase 04"
         title="Analysis & User Stories"

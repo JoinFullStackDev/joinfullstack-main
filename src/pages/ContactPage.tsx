@@ -1,13 +1,21 @@
 import { PageLayout } from '@/components/PageLayout';
 import { MultiStepContactForm } from '@/components/MultiStepContactForm';
-import { usePageTitle } from '@/hooks/usePageTitle';
+import { SEO } from '@/components/SEO';
+import { seoMetadata } from '@/lib/seo/metadata';
+import { getOrganizationSchema } from '@/lib/seo/schemas';
 
 const ContactPage = () => {
-  usePageTitle('Contact');
   
   return (
     <PageLayout>
-      <section className="min-h-[80vh] flex items-center justify-center px-6 py-16 pt-24">
+      <SEO
+        title={seoMetadata.contact.title}
+        description={seoMetadata.contact.description}
+        keywords={seoMetadata.contact.keywords}
+        canonical="https://joinfullstack.com/contact"
+        structuredData={getOrganizationSchema()}
+      />
+      <section className="min-h-[80vh] flex items-center justify-center px-6 py-16 pt-28 md:pt-24">
         <div className="w-full max-w-4xl">
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-6xl font-bold mb-4">

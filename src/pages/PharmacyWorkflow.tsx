@@ -1,6 +1,9 @@
 import { PageLayout } from '@/components/PageLayout';
 import { Contact } from '@/components/Contact';
 import { Link } from 'react-router-dom';
+import { SEO } from '@/components/SEO';
+import { seoMetadata } from '@/lib/seo/metadata';
+import { getArticleSchema, getBreadcrumbSchema } from '@/lib/seo/schemas';
 import { 
   TrendingUp, 
   Users, 
@@ -96,6 +99,26 @@ const PharmacyWorkflow = () => {
 
   return (
     <PageLayout>
+      <SEO
+        title={seoMetadata.pharmacyWorkflow.title}
+        description={seoMetadata.pharmacyWorkflow.description}
+        keywords={seoMetadata.pharmacyWorkflow.keywords}
+        canonical="https://joinfullstack.com/work/pharmacy-workflow"
+        ogType="article"
+        structuredData={[
+          getArticleSchema({
+            headline: 'Pharmacy Workflow Automation — 3x Revenue Growth',
+            description: seoMetadata.pharmacyWorkflow.description,
+            url: '/work/pharmacy-workflow',
+            keywords: ['pharmacy automation', 'workflow automation', 'healthcare technology', 'operations optimization'],
+          }),
+          getBreadcrumbSchema([
+            { name: 'Home', url: '/' },
+            { name: 'Work', url: '/work' },
+            { name: 'Pharmacy Workflow Automation', url: '/work/pharmacy-workflow' },
+          ]),
+        ]}
+      />
       {/* Hero Section */}
       <section className="relative min-h-[70vh] flex items-center justify-center px-6 py-20">
         <div className="max-w-5xl mx-auto text-center">

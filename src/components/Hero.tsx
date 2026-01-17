@@ -97,7 +97,7 @@ export const Hero = () => {
     <section 
       id="hero" 
       ref={heroRef}
-      className="relative min-h-[70vh] md:min-h-[85vh] flex items-center justify-center px-6 pt-16 md:pt-0 overflow-hidden"
+      className="relative min-h-[70vh] md:min-h-[85vh] flex items-center justify-center px-6 pt-28 md:pt-20 overflow-hidden"
     >
       <div className="relative z-10 max-w-5xl mx-auto text-center">
         <h1 

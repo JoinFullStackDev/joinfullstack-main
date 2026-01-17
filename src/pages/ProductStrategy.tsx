@@ -6,6 +6,9 @@ import { PhaseDetailCard } from '@/components/PhaseDetailCard';
 import { PhaseMetrics } from '@/components/PhaseMetrics';
 import { DeliverablesChecklist } from '@/components/DeliverablesChecklist';
 import { Contact } from '@/components/Contact';
+import { SEO } from '@/components/SEO';
+import { seoMetadata } from '@/lib/seo/metadata';
+import { getServiceSchema, getBreadcrumbSchema } from '@/lib/seo/schemas';
 import { 
   Target, 
   Users, 
@@ -79,6 +82,24 @@ const ProductStrategy = () => {
 
   return (
     <PageLayout>
+      <SEO
+        title={seoMetadata.productStrategy.title}
+        description={seoMetadata.productStrategy.description}
+        keywords={seoMetadata.productStrategy.keywords}
+        canonical="https://joinfullstack.com/services/product-strategy"
+        structuredData={[
+          getServiceSchema({
+            name: 'Product Strategy',
+            description: seoMetadata.productStrategy.description,
+            url: '/services/product-strategy',
+          }),
+          getBreadcrumbSchema([
+            { name: 'Home', url: '/' },
+            { name: 'Services', url: '/services' },
+            { name: 'Product Strategy', url: '/services/product-strategy' },
+          ]),
+        ]}
+      />
       <ServiceHero
         phase="Phase 02"
         title="Product Strategy"

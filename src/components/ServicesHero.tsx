@@ -1,6 +1,6 @@
 export const ServicesHero = () => {
   return (
-    <section className="relative min-h-[50vh] flex items-center justify-center px-6 pt-24 pb-12">
+    <section className="relative min-h-[50vh] flex items-center justify-center px-6 pt-28 md:pt-24 pb-12">
       <div className="max-w-5xl mx-auto text-center animate-fade-in">
         <div className="inline-block px-4 py-2 rounded-full border border-accent/20 bg-accent/5 mb-6">
           <span className="text-sm font-mono text-accent uppercase tracking-wider">

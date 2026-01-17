@@ -1,6 +1,9 @@
 import { PageLayout } from '@/components/PageLayout';
 import { Contact } from '@/components/Contact';
 import { Link } from 'react-router-dom';
+import { SEO } from '@/components/SEO';
+import { seoMetadata } from '@/lib/seo/metadata';
+import { getArticleSchema, getBreadcrumbSchema } from '@/lib/seo/schemas';
 import { 
   TrendingUp, 
   Users, 
@@ -68,6 +71,26 @@ const FintechLendingPlatform = () => {
 
   return (
     <PageLayout>
+      <SEO
+        title={seoMetadata.fintechLending.title}
+        description={seoMetadata.fintechLending.description}
+        keywords={seoMetadata.fintechLending.keywords}
+        canonical="https://joinfullstack.com/work/fintech-lending-platform"
+        ogType="article"
+        structuredData={[
+          getArticleSchema({
+            headline: 'FinTech Lending Platform — 10x Applications in 90 Days',
+            description: seoMetadata.fintechLending.description,
+            url: '/work/fintech-lending-platform',
+            keywords: ['fintech', 'lending platform', 'conversion optimization', 'UX design', 'student loans'],
+          }),
+          getBreadcrumbSchema([
+            { name: 'Home', url: '/' },
+            { name: 'Work', url: '/work' },
+            { name: 'FinTech Lending Platform', url: '/work/fintech-lending-platform' },
+          ]),
+        ]}
+      />
       {/* Hero Section */}
       <section className="relative min-h-[70vh] flex items-center justify-center px-6 py-20">
         <div className="max-w-5xl mx-auto text-center">

@@ -32,7 +32,7 @@ export const ProcessPhaseCard = ({
   successRate,
 }: ProcessPhaseCardProps) => {
   return (
-    <div className="relative mb-32 last:mb-0">
+    <div className="relative mb-16 md:mb-32 last:mb-0">
       {/* Desktop Layout */}
       <div className="hidden md:grid md:grid-cols-[1fr_auto_1fr] md:gap-8 items-center">
         {/* Left Side - Main Card or Insight based on alignment */}
@@ -103,31 +103,46 @@ export const ProcessPhaseCard = ({
       </div>
 
       {/* Mobile Layout */}
-      <div className="md:hidden flex gap-6">
-        {/* Left Badge */}
-        <div className="flex-shrink-0">
+      <div className="md:hidden">
+        {/* Header with Badge */}
+        <div className="flex items-center gap-4 mb-4">
           <div 
-            className="process-badge relative z-10 flex items-center justify-center w-12 h-12 rounded-full bg-accent border-4 border-background shadow-[0_0_20px_hsl(var(--accent)/0.5)]"
+            className="process-badge relative z-10 flex items-center justify-center w-12 h-12 rounded-full bg-accent border-4 border-background shadow-[0_0_20px_hsl(var(--accent)/0.5)] flex-shrink-0"
             data-index={index}
           >
             <Icon className="w-6 h-6 text-background" />
           </div>
+          <div>
+            <div className="text-xs font-mono text-accent uppercase tracking-widest">
+              {number}
+            </div>
+            <h3 className="text-xl font-bold">
+              {title}
+            </h3>
+          </div>
         </div>
 
-        {/* Content */}
+        {/* Main Card Content */}
         <div 
-          className="process-card flex-1"
+          className="process-card"
           data-align="left"
           data-index={index}
         >
-          <CardContent
-            number={number}
-            title={title}
+          <MobileCardContent
             description={description}
-            icon={Icon}
             features={features}
             processSteps={processSteps}
             metrics={metrics}
+          />
+        </div>
+
+        {/* Insight Section - Now visible on mobile */}
+        <div className="mt-6">
+          <ProcessPhaseInsight
+            deliverables={deliverables}
+            duration={duration}
+            successRate={successRate}
+            index={index}
           />
         </div>
       </div>
@@ -135,7 +150,7 @@ export const ProcessPhaseCard = ({
   );
 };
 
-// Extracted card content component
+// Extracted card content component for desktop
 const CardContent = ({
   number,
   title,
@@ -190,6 +205,60 @@ const CardContent = ({
         {metrics.map((metric, idx) => (
           <div key={idx} className="p-4 rounded-lg bg-background/50 border border-border/30">
             <div className="text-2xl font-bold text-accent mb-1 process-counter" data-target={metric.value}>
+              {metric.value}
+            </div>
+            <div className="text-xs text-muted-foreground">
+              {metric.label}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+// Mobile card content without header (header shown separately)
+const MobileCardContent = ({
+  description,
+  features,
+  processSteps,
+  metrics,
+}: {
+  description: string;
+  features: string[];
+  processSteps: string[];
+  metrics: { label: string; value: string }[];
+}) => {
+  return (
+    <div className="p-6 rounded-2xl border border-border/50 bg-card/30 backdrop-blur-sm">
+      {/* Description */}
+      <p className="text-muted-foreground leading-relaxed mb-6">
+        {description}
+      </p>
+
+      {/* Features */}
+      <div className="mb-6">
+        <h4 className="text-sm font-mono text-muted-foreground uppercase tracking-wider mb-3">
+          Key Features
+        </h4>
+        <div className="grid grid-cols-1 gap-2">
+          {features.map((feature, idx) => (
+            <div key={idx} className="flex items-start gap-2">
+              <div className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
+              <span className="text-sm text-foreground/80">{feature}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Process Flow */}
+      <ProcessFlow steps={processSteps} />
+
+      {/* Metrics */}
+      <div className="grid grid-cols-2 gap-3 mt-6">
+        {metrics.map((metric, idx) => (
+          <div key={idx} className="p-3 rounded-lg bg-background/50 border border-border/30">
+            <div className="text-xl font-bold text-accent mb-1">
               {metric.value}
             </div>
             <div className="text-xs text-muted-foreground">

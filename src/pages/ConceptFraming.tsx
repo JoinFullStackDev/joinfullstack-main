@@ -6,6 +6,9 @@ import { PhaseDetailCard } from '@/components/PhaseDetailCard';
 import { PhaseMetrics } from '@/components/PhaseMetrics';
 import { DeliverablesChecklist } from '@/components/DeliverablesChecklist';
 import { Contact } from '@/components/Contact';
+import { SEO } from '@/components/SEO';
+import { seoMetadata } from '@/lib/seo/metadata';
+import { getServiceSchema, getBreadcrumbSchema } from '@/lib/seo/schemas';
 import { Lightbulb, Users, FileText, BarChart3, Code2, Shield, Zap } from 'lucide-react';
 
 const ConceptFraming = () => {
@@ -69,6 +72,24 @@ const ConceptFraming = () => {
 
   return (
     <PageLayout>
+      <SEO
+        title={seoMetadata.conceptFraming.title}
+        description={seoMetadata.conceptFraming.description}
+        keywords={seoMetadata.conceptFraming.keywords}
+        canonical="https://joinfullstack.com/services/concept-framing"
+        structuredData={[
+          getServiceSchema({
+            name: 'Concept Framing',
+            description: seoMetadata.conceptFraming.description,
+            url: '/services/concept-framing',
+          }),
+          getBreadcrumbSchema([
+            { name: 'Home', url: '/' },
+            { name: 'Services', url: '/services' },
+            { name: 'Concept Framing', url: '/services/concept-framing' },
+          ]),
+        ]}
+      />
       <ServiceHero
         phase="Phase 01"
         title="Concept Framing"

@@ -6,7 +6,8 @@ import { ProcessTimeline } from '@/components/process/ProcessTimeline';
 import { ProcessPhaseCard } from '@/components/process/ProcessPhaseCard';
 import { ProcessStats } from '@/components/process/ProcessStats';
 import { Button } from '@/components/ui/button';
-import { usePageTitle } from '@/hooks/usePageTitle';
+import { SEO } from '@/components/SEO';
+import { seoMetadata } from '@/lib/seo/metadata';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -16,7 +17,6 @@ if (typeof window !== 'undefined') {
 }
 
 const ThankYou = () => {
-  usePageTitle('Thank You');
   const location = useLocation();
   const formData = location.state?.formData;
 
@@ -349,6 +349,11 @@ const ThankYou = () => {
 
   return (
     <PageLayout>
+      <SEO
+        title={seoMetadata.thankYou.title}
+        description={seoMetadata.thankYou.description}
+        noindex={true}
+      />
       {/* Hero Section */}
       <section className="relative min-h-[80vh] flex items-center justify-center px-6 overflow-hidden">
         {/* Floating Background Elements */}

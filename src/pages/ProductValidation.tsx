@@ -6,6 +6,9 @@ import { PhaseDetailCard } from '@/components/PhaseDetailCard';
 import { PhaseMetrics } from '@/components/PhaseMetrics';
 import { DeliverablesChecklist } from '@/components/DeliverablesChecklist';
 import { Contact } from '@/components/Contact';
+import { SEO } from '@/components/SEO';
+import { seoMetadata } from '@/lib/seo/metadata';
+import { getServiceSchema, getBreadcrumbSchema } from '@/lib/seo/schemas';
 import { 
   Boxes,
   Layout,
@@ -79,6 +82,24 @@ const ProductValidation = () => {
 
   return (
     <PageLayout>
+      <SEO
+        title={seoMetadata.productValidation.title}
+        description={seoMetadata.productValidation.description}
+        keywords={seoMetadata.productValidation.keywords}
+        canonical="https://joinfullstack.com/services/product-validation"
+        structuredData={[
+          getServiceSchema({
+            name: 'Product Validation',
+            description: seoMetadata.productValidation.description,
+            url: '/services/product-validation',
+          }),
+          getBreadcrumbSchema([
+            { name: 'Home', url: '/' },
+            { name: 'Services', url: '/services' },
+            { name: 'Product Validation', url: '/services/product-validation' },
+          ]),
+        ]}
+      />
       <ServiceHero
         phase="Phase 03"
         title="Product Validation"

@@ -1,14 +1,10 @@
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
+# Robots.txt for joinfullstack.com
 
 User-agent: *
 Allow: /
+
+# Sitemap
+Sitemap: https://joinfullstack.com/sitemap.xml
+
+# Disallow admin/private paths (if any)
+Disallow: /api/
