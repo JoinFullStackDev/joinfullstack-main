@@ -90,7 +90,7 @@ export const seoMetadata = {
   process: {
     title: 'Our Process — Proven Software Development Methodology',
     description:
-      'A systematic 6-phase approach: concept framing, strategy, validation, analysis, build, and QA. 98% success rate, 150+ projects delivered.',
+      'A systematic 6-phase approach: concept framing, strategy, validation, analysis, build, and QA. 98% success rate, 25+ clients served.',
     keywords: 'development process, methodology, agile process, software lifecycle, project delivery',
   },
 

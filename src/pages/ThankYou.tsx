@@ -4,7 +4,6 @@ import { Lightbulb, Target, Boxes, BarChart3, Hammer, Shield, Zap, CheckCircle2,
 import { PageLayout } from '@/components/PageLayout';
 import { ProcessTimeline } from '@/components/process/ProcessTimeline';
 import { ProcessPhaseCard } from '@/components/process/ProcessPhaseCard';
-import { ProcessStats } from '@/components/process/ProcessStats';
 import { Button } from '@/components/ui/button';
 import { SEO } from '@/components/SEO';
 import { seoMetadata } from '@/lib/seo/metadata';
@@ -75,24 +74,6 @@ const ThankYou = () => {
         duration: 0.8,
         delay: 0.7,
         ease: 'power3.out'
-      });
-
-      // Stats animation with stagger
-      gsap.fromTo('.process-stat', {
-        opacity: 0,
-        scale: 0.8,
-        y: 20
-      }, {
-        opacity: 1,
-        scale: 1,
-        y: 0,
-        duration: 0.6,
-        stagger: 0.1,
-        ease: 'back.out(1.7)',
-        scrollTrigger: {
-          trigger: '.process-stat',
-          start: 'top 85%'
-        }
       });
 
       // Phase badges pulse animation
@@ -228,13 +209,6 @@ const ThankYou = () => {
   if (!formData) {
     return <Navigate to="/contact" replace />;
   }
-
-  const processStats = [
-    { label: 'Success Rate', value: '98', suffix: '%' },
-    { label: 'Projects Delivered', value: '150', suffix: '+' },
-    { label: 'Years Experience', value: '10', suffix: '+' },
-    { label: 'Team Members', value: '25', suffix: '+' }
-  ];
 
   const phases = [
     {
@@ -424,8 +398,6 @@ const ThankYou = () => {
               <p className="text-sm text-muted-foreground">Tailored plan with timeline and investment</p>
             </div>
           </div>
-
-          <ProcessStats stats={processStats} />
         </div>
       </section>
 

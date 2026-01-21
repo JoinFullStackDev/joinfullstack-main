@@ -38,17 +38,10 @@ const comparisons = [
   },
 ];
 
-const stats = [
-  { value: '50+', label: 'Projects Delivered' },
-  { value: '99.9%', label: 'Uptime Achieved' },
-  { value: '15+', label: 'Years Experience' },
-];
-
 export const Deliverables = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const comparisonRef = useRef<HTMLDivElement>(null);
-  const proofRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -133,25 +126,6 @@ export const Deliverables = () => {
           }
         );
       }
-
-      // Proof bar animation
-      if (proofRef.current) {
-        gsap.fromTo(
-          proofRef.current,
-          { opacity: 0, y: 20 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.6,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: proofRef.current,
-              start: 'top 90%',
-              toggleActions: 'play none none reverse',
-            },
-          }
-        );
-      }
     }, sectionRef);
 
     return () => ctx.revert();
@@ -208,18 +182,6 @@ export const Deliverables = () => {
                 </li>
               ))}
             </ul>
-          </div>
-        </div>
-
-        {/* Bottom Proof Bar */}
-        <div ref={proofRef} className="mt-12 flex justify-center">
-          <div className="flex flex-wrap items-center justify-center gap-6 md:gap-8 px-6 py-4 rounded-full bg-card/50 border border-border/50">
-            {stats.map((stat, index) => (
-              <div key={index} className="flex items-center gap-2">
-                <span className="text-xl md:text-2xl font-bold text-accent">{stat.value}</span>
-                <span className="text-sm text-muted-foreground">{stat.label}</span>
-              </div>
-            ))}
           </div>
         </div>
       </div>

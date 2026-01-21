@@ -175,8 +175,8 @@ const About = () => {
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-4">
                   <div className="p-6 rounded-2xl bg-gradient-to-br from-accent/20 to-accent/5 border border-accent/20">
-                    <div className="text-4xl font-bold text-accent mb-2">150+</div>
-                    <div className="text-sm text-muted-foreground">Projects Delivered</div>
+                    <div className="text-4xl font-bold text-accent mb-2">25+</div>
+                    <div className="text-sm text-muted-foreground">Clients Served</div>
                   </div>
                   <div className="p-6 rounded-2xl bg-card/50 border border-border/50">
                     <div className="text-4xl font-bold text-foreground mb-2">98%</div>
@@ -185,8 +185,8 @@ const About = () => {
                 </div>
                 <div className="space-y-4 mt-8">
                   <div className="p-6 rounded-2xl bg-card/50 border border-border/50">
-                    <div className="text-4xl font-bold text-foreground mb-2">10+</div>
-                    <div className="text-sm text-muted-foreground">Years Experience</div>
+                    <div className="text-4xl font-bold text-foreground mb-2">6</div>
+                    <div className="text-sm text-muted-foreground">Development Phases</div>
                   </div>
                   <div className="p-6 rounded-2xl bg-gradient-to-br from-blue-500/20 to-blue-500/5 border border-blue-500/20">
                     <div className="text-4xl font-bold text-blue-500 mb-2">{totalTeamCount}</div>
@@ -271,8 +271,8 @@ const About = () => {
             </div>
             <div className="stat-item text-center p-6 rounded-2xl bg-card/30 border border-border/50">
               <Target className="w-8 h-8 mx-auto text-green-500 mb-3" />
-              <div className="text-3xl font-bold">150+</div>
-              <div className="text-sm text-muted-foreground">Projects</div>
+              <div className="text-3xl font-bold">25+</div>
+              <div className="text-sm text-muted-foreground">Clients</div>
             </div>
             <div className="stat-item text-center p-6 rounded-2xl bg-card/30 border border-border/50">
               <Zap className="w-8 h-8 mx-auto text-orange-500 mb-3" />

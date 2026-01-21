@@ -191,16 +191,16 @@ const Process = () => {
     value: '98',
     suffix: '%'
   }, {
-    label: 'Projects Delivered',
-    value: '150',
+    label: 'Clients Served',
+    value: '25',
     suffix: '+'
   }, {
-    label: 'Years Experience',
-    value: '10',
-    suffix: '+'
+    label: 'Development Phases',
+    value: '6',
+    suffix: ''
   }, {
     label: 'Team Members',
-    value: '25',
+    value: '17',
     suffix: '+'
   }];
   const phases = [{

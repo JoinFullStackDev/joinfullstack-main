@@ -2,14 +2,7 @@ import { useEffect, useRef } from 'react';
 import { ArrowRight, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { AnimatedCounter } from '@/components/AnimatedCounter';
 import { gsap } from 'gsap';
-
-const stats = [
-  { value: 50, suffix: '+', label: 'Projects Delivered' },
-  { value: 99.9, suffix: '%', label: 'Uptime Achieved', decimals: 1 },
-  { value: 15, suffix: '+', label: 'Years Experience' },
-];
 
 const complianceBadges = [
   'SOC 2 Compliant',
@@ -22,7 +15,6 @@ export const Hero = () => {
   const headlineRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const buttonsRef = useRef<HTMLDivElement>(null);
-  const statsRef = useRef<HTMLDivElement>(null);
   const badgesRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -64,18 +56,6 @@ export const Hero = () => {
           duration: 0.5,
           stagger: 0.1,
         }, 0.8);
-      }
-
-      // Stats fade in
-      if (statsRef.current) {
-        const statItems = statsRef.current.querySelectorAll('.stat-item');
-        gsap.set(statItems, { opacity: 0, y: 20 });
-        tl.to(statItems, {
-          opacity: 1,
-          y: 0,
-          duration: 0.5,
-          stagger: 0.1,
-        }, 1);
       }
 
       // Badges fade in
@@ -120,26 +100,6 @@ export const Hero = () => {
         >
           End-to-end product development for healthcare, fintech, and regulated industries.
         </p>
-
-        {/* Stats Row */}
-        <div 
-          ref={statsRef}
-          className="flex flex-wrap justify-center gap-8 md:gap-12 mb-10"
-        >
-          {stats.map((stat) => (
-            <div key={stat.label} className="stat-item text-center">
-              <div className="text-3xl md:text-4xl font-bold text-accent">
-                <AnimatedCounter 
-                  target={stat.value} 
-                  suffix={stat.suffix} 
-                  decimals={stat.decimals || 0}
-                  duration={2}
-                />
-              </div>
-              <div className="text-sm text-muted-foreground mt-1">{stat.label}</div>
-            </div>
-          ))}
-        </div>
         
         <div 
           ref={buttonsRef}
