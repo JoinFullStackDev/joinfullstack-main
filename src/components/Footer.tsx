@@ -1,4 +1,4 @@
-import { Github, Linkedin, Twitter } from 'lucide-react';
+import { Github, Linkedin, Facebook, Instagram } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import logoSvg from '@/assets/fullstack_logo_white.svg';
 
@@ -35,21 +35,48 @@ export const Footer = () => {
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><Link to="/about" className="hover:text-accent transition-colors">About</Link></li>
               <li><Link to="/work" className="hover:text-accent transition-colors">Case Studies</Link></li>
-              <li><Link to="/contact" className="hover:text-accent transition-colors">Careers</Link></li>
+              <li><Link to="/about/team" className="hover:text-accent transition-colors">Team</Link></li>
               <li><Link to="/contact" className="hover:text-accent transition-colors">Contact</Link></li>
             </ul>
           </div>
           
           <div>
             <h4 className="font-semibold mb-4">Connect</h4>
-            <div className="flex gap-4">
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg border border-border/50 hover:border-accent/30 transition-colors" aria-label="Twitter">
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg border border-border/50 hover:border-accent/30 transition-colors" aria-label="LinkedIn">
+            <div className="flex flex-wrap gap-3">
+              <a 
+                href="https://www.linkedin.com/company/join-full-stack/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="p-2 rounded-lg border border-border/50 hover:border-accent/30 transition-colors" 
+                aria-label="LinkedIn"
+              >
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg border border-border/50 hover:border-accent/30 transition-colors" aria-label="GitHub">
+              <a 
+                href="https://facebook.com/joinfullstack" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="p-2 rounded-lg border border-border/50 hover:border-accent/30 transition-colors" 
+                aria-label="Facebook"
+              >
+                <Facebook className="w-5 h-5" />
+              </a>
+              <a 
+                href="https://instagram.com/joinfullstack" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="p-2 rounded-lg border border-border/50 hover:border-accent/30 transition-colors" 
+                aria-label="Instagram"
+              >
+                <Instagram className="w-5 h-5" />
+              </a>
+              <a 
+                href="https://github.com/JoinFullStackDev" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="p-2 rounded-lg border border-border/50 hover:border-accent/30 transition-colors" 
+                aria-label="GitHub"
+              >
                 <Github className="w-5 h-5" />
               </a>
             </div>

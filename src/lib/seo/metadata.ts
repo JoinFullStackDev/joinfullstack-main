@@ -118,6 +118,27 @@ export const seoMetadata = {
     title: 'Page Not Found',
     description: 'The page you\'re looking for doesn\'t exist or has been moved.',
   },
+
+  privacy: {
+    title: 'Privacy Policy — FullStack',
+    description:
+      'Learn how FullStack collects, uses, and protects your personal information. Our commitment to your privacy.',
+    keywords: 'privacy policy, data protection, GDPR, personal information, cookies',
+  },
+
+  terms: {
+    title: 'Terms of Service — FullStack',
+    description:
+      'Terms and conditions for using FullStack services. Understanding your rights and responsibilities.',
+    keywords: 'terms of service, terms and conditions, legal, user agreement',
+  },
+
+  security: {
+    title: 'Security Practices — FullStack',
+    description:
+      'How FullStack protects your data and maintains security across all our systems and services.',
+    keywords: 'security, data protection, encryption, compliance, SOC 2',
+  },
 } as const;
 
 export type PageKey = keyof typeof seoMetadata;

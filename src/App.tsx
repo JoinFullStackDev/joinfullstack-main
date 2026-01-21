@@ -27,6 +27,9 @@ const Process = lazy(() => import("./pages/Process"));
 const Team = lazy(() => import("./pages/Team"));
 const ContactPage = lazy(() => import("./pages/ContactPage"));
 const ThankYou = lazy(() => import("./pages/ThankYou"));
+const Privacy = lazy(() => import("./pages/Privacy"));
+const Terms = lazy(() => import("./pages/Terms"));
+const Security = lazy(() => import("./pages/Security"));
 
 const queryClient = new QueryClient();
 
@@ -65,6 +68,11 @@ const App = () => (
               {/* Contact Route */}
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/thank-you" element={<ThankYou />} />
+              
+              {/* Legal Routes */}
+              <Route path="/privacy" element={<Privacy />} />
+              <Route path="/terms" element={<Terms />} />
+              <Route path="/security" element={<Security />} />
               
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
