@@ -4,7 +4,7 @@ import { LogoRail } from '@/components/LogoRail';
 import { TechStack } from '@/components/TechStack';
 import { ServicesOverview } from '@/components/ServicesOverview';
 import { CaseStudies } from '@/components/CaseStudies';
-import { FeaturedTestimonial } from '@/components/FeaturedTestimonial';
+import { ClientVoices } from '@/components/ClientVoices';
 import { Deliverables } from '@/components/Deliverables';
 import { Contact } from '@/components/Contact';
 import { useGsap } from '@/hooks/useGsap';
@@ -29,7 +29,7 @@ const Index = () => {
       <TechStack />
       <ServicesOverview />
       <CaseStudies />
-      <FeaturedTestimonial />
+      <ClientVoices />
       <Deliverables />
       <Contact />
     </PageLayout>
