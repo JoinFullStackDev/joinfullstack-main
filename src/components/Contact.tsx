@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
@@ -45,7 +46,8 @@ export const Contact = () => {
   const headerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   
-  const { register, handleSubmit, formState: { errors }, reset } = useForm<ContactFormData>({
+  const navigate = useNavigate();
+  const { register, handleSubmit, formState: { errors } } = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
   });
 
@@ -132,11 +134,23 @@ export const Contact = () => {
       }
       
       toast.success("Thank you! We'll be in touch within 24 hours.");
-      reset();
+      
+      // Navigate to thank you page with form data
+      // Map 'message' to 'vision' for ThankYou page compatibility
+      navigate('/thank-you', { 
+        state: { 
+          formData: {
+            name: data.name,
+            email: data.email,
+            company: data.company,
+            vision: data.message,
+          },
+          timestamp: new Date().toISOString() 
+        } 
+      });
     } catch (error) {
       console.error('Contact form error:', error);
       toast.error('Something went wrong. Please try again.');
-    } finally {
       setIsSubmitting(false);
     }
   };

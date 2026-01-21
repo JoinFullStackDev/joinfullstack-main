@@ -18,7 +18,7 @@ export const teamMembers: TeamMember[] = [
     title: 'Founder/CEO',
     department: 'Leadership',
     isLeadership: true,
-    bio: 'Spencer founded FullStack with a vision to deliver exceptional software engineering services through a combination of technical excellence and client-centric methodology. With a background in scalable software architecture and product strategy, Spencer leads the company\'s technical direction while fostering a culture of innovation and continuous improvement. His passion lies in transforming complex business challenges into elegant software solutions that drive measurable results.',
+    bio: 'Spencer leads the technology team with a hands-on, builder-first approach. He focuses on rapid prototyping, system architecture, and translating early-stage or loosely defined ideas into working software that can mature into production-grade platforms. He is particularly effective at work that sits at the intersection of architecture, implementation, and real-world constraints—projects that require moving quickly while still making sound technical decisions that hold up over time.',
     specialties: ['Product Strategy', 'Software Architecture', 'Business Development', 'Team Leadership'],
     linkedInUrl: '#'
   },
@@ -53,7 +53,7 @@ export const teamMembers: TeamMember[] = [
     title: 'Senior DevSecOps Engineer',
     department: 'Engineering',
     isLeadership: false,
-    bio: 'Jake brings deep expertise in DevSecOps, merging development, security, and operations into cohesive, automated workflows. With a focus on security-first infrastructure and CI/CD excellence, Jake ensures FullStack\'s systems are both robust and secure. His leadership in DevSecOps practices helps the team deliver reliable, secure solutions at scale.',
+    bio: 'Jake focuses on security architecture, infrastructure, and deployment automation. His background includes building secure systems for large organizations and designing infrastructure with compliance and reliability in mind. He gravitates toward risk-sensitive and compliance-heavy problem spaces, including authentication, authorization, data protection, and secure deployment pipelines.',
     specialties: ['DevSecOps', 'Security Engineering', 'Infrastructure as Code', 'CI/CD Pipelines'],
     linkedInUrl: '#'
   },
@@ -63,7 +63,7 @@ export const teamMembers: TeamMember[] = [
     title: 'Director of Engineering',
     department: 'Leadership',
     isLeadership: true,
-    bio: 'As Director of Engineering, Omar leads the technical vision and execution across all engineering initiatives. With a unique blend of development expertise, design thinking, and strategic planning, Omar ensures the engineering team delivers solutions that are technically excellent and user-centric. His leadership fosters innovation while maintaining high standards of code quality and team collaboration.',
+    bio: 'Omar brings decades of experience designing and scaling enterprise-grade systems across commercial and government environments. His focus is on foundational architecture, long-term system health, and building platforms that balance performance, security, maintainability, and scalability. He excels at early architectural decision-making for complex systems, particularly where technical choices have long-term operational consequences.',
     specialties: ['Engineering Leadership', 'Full-Stack Development', 'Team Management', 'Technical Strategy'],
     linkedInUrl: '#'
   },
@@ -73,7 +73,7 @@ export const teamMembers: TeamMember[] = [
     title: 'Director of Product',
     department: 'Leadership',
     isLeadership: true,
-    bio: 'As Director of Product, Jake orchestrates the vision and execution of FullStack\'s product initiatives, bridging the gap between client needs and technical implementation. With deep expertise in product management and strategic planning, Jake ensures every project aligns with business objectives while delivering exceptional value. His collaborative approach makes him instrumental in driving successful outcomes.',
+    bio: 'Jake brings over a decade of experience leading complex product initiatives across consumer, enterprise, and operational platforms. His work centers on deep discovery, solving the right problems, and creating real business and user value rather than simply delivering features. He focuses on clarifying ambiguous problem spaces, identifying the highest-leverage opportunities, and aligning stakeholders around what actually matters. Jake is especially effective in cross-functional environments where requirements are incomplete, tradeoffs must be made explicit, and teams need a clear, shared understanding of success before execution begins.',
     specialties: ['Product Management', 'Product Strategy', 'Agile Methodology', 'Stakeholder Management'],
     linkedInUrl: '#'
   },
@@ -83,7 +83,7 @@ export const teamMembers: TeamMember[] = [
     title: 'Director of QA',
     department: 'Leadership',
     isLeadership: true,
-    bio: 'Joe leads FullStack\'s quality assurance organization, establishing comprehensive testing frameworks and quality standards that ensure every deliverable exceeds expectations. With extensive experience in QA strategy and team leadership, Joe champions quality throughout the development lifecycle. His systematic approach has been instrumental in maintaining FullStack\'s reputation for reliability and excellence.',
+    bio: 'Joe leads quality assurance and deployment with a focus on automation, reliability, and compliance. He has built QA organizations and processes that emphasize system-level quality and production readiness. He focuses on validating overall system behavior, edge cases, and failure modes—ensuring software performs reliably under real-world conditions, not just ideal paths.',
     specialties: ['QA Leadership', 'Test Strategy', 'Quality Standards', 'Team Management'],
     linkedInUrl: '#'
   },
@@ -94,7 +94,7 @@ export const teamMembers: TeamMember[] = [
     name: 'Meissa Dia',
     title: 'Principal Software Engineer',
     department: 'Engineering',
-    bio: 'As Principal Software Engineer, Meissa brings deep expertise in distributed systems, microservices architecture, and cloud-native technologies. With a track record of designing and implementing large-scale applications, Meissa mentors the engineering team while driving technical standards and best practices. Their work spans full-stack development with particular strength in backend optimization and system design.',
+    bio: 'Meissa leads full-stack development and technical standards across the team. With extensive experience across front-end and back-end systems, he plays a central role in shaping how products are built and maintained. He excels at solving hard, end-to-end technical problems, especially those that span multiple layers of a system and require thoughtful coordination between architecture, implementation, and quality.',
     specialties: ['Distributed Systems', 'Microservices', 'Cloud Architecture', 'Technical Mentorship'],
     linkedInUrl: '#'
   },
@@ -103,7 +103,7 @@ export const teamMembers: TeamMember[] = [
     name: 'Noah Funtanilla',
     title: 'Full Stack Software Engineer',
     department: 'Engineering',
-    bio: 'Noah is a versatile full-stack software engineer with a passion for creating elegant, scalable solutions. Combining technical proficiency across frontend and backend technologies, Noah delivers complete features that are both powerful and maintainable. His collaborative approach and problem-solving skills make him a valuable contributor to any project.',
+    bio: 'Noah is known for architecting and building full platforms with a strong product mindset. He focuses on anticipating edge cases, exploring tradeoffs, and refining systems through iteration. He enjoys open-ended architectural problems where multiple viable approaches exist and thoughtful decision-making is required to balance flexibility, simplicity, and long-term maintainability.',
     specialties: ['React', 'Node.js', 'TypeScript', 'Full-Stack Development'],
     linkedInUrl: '#'
   },
@@ -112,7 +112,7 @@ export const teamMembers: TeamMember[] = [
     name: 'Jose Delgado',
     title: 'Software & Database Architect',
     department: 'Engineering',
-    bio: 'Jose specializes in designing robust software architectures and optimized database systems that form the foundation of scalable applications. With deep expertise in database design, performance tuning, and system architecture, Jose ensures FullStack\'s solutions are built on solid technical foundations. His architectural decisions enable applications to scale efficiently and maintain performance under load.',
+    bio: 'Jose is a seasoned back-end engineer and architect with deep experience building complex, high-reliability systems. He focuses on API design, data modeling, and service architectures that support evolving business needs. He thrives on complex system design and problem decomposition, particularly in areas where reliability, scalability, and data integrity are critical.',
     specialties: ['Database Architecture', 'System Design', 'Performance Optimization', 'SQL/NoSQL'],
     linkedInUrl: '#'
   },
@@ -121,7 +121,7 @@ export const teamMembers: TeamMember[] = [
     name: 'Isaiah Larsen',
     title: 'Full Stack Software Engineer',
     department: 'Engineering',
-    bio: 'Isaiah excels at full-stack development, seamlessly working across all layers of modern web applications. With strong problem-solving abilities and a commitment to clean code, Isaiah delivers features that are both functional and maintainable. His versatility and technical breadth make him an asset to projects requiring comprehensive full-stack expertise.',
+    bio: 'Isaiah brings experience in rapid prototyping and scalable application development across multiple languages and frameworks. He is most effective in fast-moving environments where ideas need to be tested, refined, and evolved quickly. He excels at turning concepts into working software, particularly in early-stage or evolving products that require speed without sacrificing a path to scale.',
     specialties: ['JavaScript', 'React', 'Backend Development', 'API Design'],
     linkedInUrl: '#'
   },
