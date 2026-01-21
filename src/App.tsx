@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -8,6 +8,7 @@ import { ScrollToTop } from "@/components/ScrollToTop";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { ThemeProvider } from "next-themes";
+import { loadSavedColor, applyAccentColor } from "@/components/ColorPicker";
 
 // Lazy load all page components for code splitting
 const Index = lazy(() => import("./pages/Index"));
@@ -33,7 +34,14 @@ const Security = lazy(() => import("./pages/Security"));
 
 const queryClient = new QueryClient();
 
-const App = () => (
+const App = () => {
+  // Load saved accent color on app initialization
+  useEffect(() => {
+    const savedColor = loadSavedColor();
+    applyAccentColor(savedColor);
+  }, []);
+
+  return (
   <QueryClientProvider client={queryClient}>
     <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
       <TooltipProvider>
@@ -83,6 +91,7 @@ const App = () => (
       </TooltipProvider>
     </ThemeProvider>
   </QueryClientProvider>
-);
+  );
+};
 
 export default App;

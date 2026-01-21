@@ -1,13 +1,13 @@
 import { useEffect, useRef } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { gsap } from 'gsap';
-import { ChevronDown } from 'lucide-react';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
+import { ColorPicker } from '@/components/ColorPicker';
 
 interface NavigationContentProps {
   isOpen: boolean;
@@ -178,6 +178,11 @@ export const NavigationContent = ({ isOpen, onNavigate }: NavigationContentProps
         >
           Contact
         </button>
+      </div>
+
+      {/* Color Picker */}
+      <div className="nav-item">
+        <ColorPicker />
       </div>
     </div>
   );
