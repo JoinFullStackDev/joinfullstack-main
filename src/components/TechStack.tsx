@@ -18,7 +18,6 @@ import {
   SiCloudflare,
   SiVercel,
   SiDocker,
-  SiKubernetes,
   SiGithub,
   SiGitlab,
   SiGraphql,
@@ -87,7 +86,6 @@ const technologies: TechItem[] = [
   { name: 'Vercel', icon: SiVercel, color: '#ffffff' },
   { name: 'Cloudflare', icon: SiCloudflare, color: '#F38020' },
   { name: 'Docker', icon: SiDocker, color: '#2496ED' },
-  { name: 'Kubernetes', icon: SiKubernetes, color: '#326CE5' },
   { name: 'GitHub', icon: SiGithub, color: '#ffffff' },
   { name: 'GitLab', icon: SiGitlab, color: '#FC6D26' },
   { name: 'Figma', icon: SiFigma, color: '#F24E1E' },
@@ -160,14 +158,14 @@ export const TechStack = () => {
 
         <div 
           ref={gridRef} 
-          className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-7 lg:grid-cols-10 gap-3 md:gap-4"
+          className="flex flex-wrap justify-center gap-3 md:gap-4"
         >
           {technologies.map((tech) => (
             <div
               key={tech.name}
               className="tech-item group flex flex-col items-center justify-center p-2 md:p-3 rounded-xl
                          border border-transparent hover:border-border/50 hover:bg-card/30
-                         transition-all duration-300 cursor-default"
+                         transition-all duration-300 cursor-default w-[calc(25%-0.75rem)] sm:w-[calc(20%-0.75rem)] md:w-[calc(14.28%-0.75rem)] lg:w-[calc(10%-0.75rem)]"
               title={tech.name}
             >
               <div 
