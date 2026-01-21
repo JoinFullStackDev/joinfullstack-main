@@ -23,6 +23,16 @@ export const getOrganizationSchema = () => ({
 });
 
 /**
+ * WebSite schema - for site-wide search and identity
+ */
+export const getWebSiteSchema = () => ({
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: SITE_NAME,
+  url: SITE_URL,
+});
+
+/**
  * ProfessionalService schema - for home page
  */
 export const getProfessionalServiceSchema = () => ({

@@ -10,7 +10,7 @@ import { Contact } from '@/components/Contact';
 import { useGsap } from '@/hooks/useGsap';
 import { SEO } from '@/components/SEO';
 import { seoMetadata } from '@/lib/seo/metadata';
-import { getOrganizationSchema, getProfessionalServiceSchema } from '@/lib/seo/schemas';
+import { getOrganizationSchema, getProfessionalServiceSchema, getWebSiteSchema } from '@/lib/seo/schemas';
 
 const Index = () => {
   useGsap();
@@ -22,7 +22,7 @@ const Index = () => {
         description={seoMetadata.home.description}
         keywords={seoMetadata.home.keywords}
         canonical="https://joinfullstack.com"
-        structuredData={[getOrganizationSchema(), getProfessionalServiceSchema()]}
+        structuredData={[getOrganizationSchema(), getProfessionalServiceSchema(), getWebSiteSchema()]}
       />
       <Hero />
       <LogoRail />
