@@ -3,6 +3,7 @@ import { PageLayout } from '@/components/PageLayout';
 import { ServicesHero } from '@/components/ServicesHero';
 import { ServiceCard } from '@/components/ServiceCard';
 import { Contact } from '@/components/Contact';
+import { PartnerCTA } from '@/components/PartnerCTA';
 import { useGsap } from '@/hooks/useGsap';
 import { SEO } from '@/components/SEO';
 import { seoMetadata } from '@/lib/seo/metadata';
@@ -146,6 +147,12 @@ const Services = () => {
           ))}
         </div>
       </section>
+
+      <PartnerCTA 
+        variant="banner"
+        headline="Need a Team to Execute for Your Clients?"
+        subtext="Expand your agency's capabilities without the hiring headaches. Partner with US-based senior engineers who deliver."
+      />
       
       <Contact />
     </PageLayout>

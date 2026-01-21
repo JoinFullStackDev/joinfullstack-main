@@ -139,6 +139,13 @@ export const seoMetadata = {
       'How FullStack protects your data and maintains security across all our systems and services.',
     keywords: 'security, data protection, encryption, compliance, SOC 2',
   },
+
+  partners: {
+    title: 'Partner With Us — Agency & Referral Partnerships | FullStack',
+    description:
+      'Expand your agency capabilities with a reliable US-based development partner. White-label services, referral programs, and strategic partnerships.',
+    keywords: 'agency partnership, white-label development, referral program, software partnership, outsourcing alternative, US developers',
+  },
 } as const;
 
 export type PageKey = keyof typeof seoMetadata;

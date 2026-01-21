@@ -31,6 +31,7 @@ const ThankYou = lazy(() => import("./pages/ThankYou"));
 const Privacy = lazy(() => import("./pages/Privacy"));
 const Terms = lazy(() => import("./pages/Terms"));
 const Security = lazy(() => import("./pages/Security"));
+const Partners = lazy(() => import("./pages/Partners"));
 
 const queryClient = new QueryClient();
 
@@ -76,6 +77,9 @@ const App = () => {
               {/* Contact Route */}
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/thank-you" element={<ThankYou />} />
+              
+              {/* Partners Route */}
+              <Route path="/partners" element={<Partners />} />
               
               {/* Legal Routes */}
               <Route path="/privacy" element={<Privacy />} />

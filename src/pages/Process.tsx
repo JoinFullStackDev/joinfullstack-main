@@ -6,6 +6,7 @@ import { ProcessPhaseCard } from '@/components/process/ProcessPhaseCard';
 import { ProcessStats } from '@/components/process/ProcessStats';
 import { ProcessProgress } from '@/components/process/ProcessProgress';
 import { Contact } from '@/components/Contact';
+import { PartnerCTA } from '@/components/PartnerCTA';
 import { SEO } from '@/components/SEO';
 import { seoMetadata } from '@/lib/seo/metadata';
 import { getOrganizationSchema, getBreadcrumbSchema } from '@/lib/seo/schemas';
@@ -400,8 +401,12 @@ const Process = () => {
         {phases.map((phase, index) => <ProcessPhaseCard key={index} number={phase.number} title={phase.title} description={phase.description} icon={phase.icon} features={phase.features} processSteps={phase.processSteps} metrics={phase.metrics} deliverables={phase.deliverables} duration={phase.duration} successRate={phase.successRate} align={phase.align} index={index} />)}
       </ProcessTimeline>
 
-      {/* CTA Section */}
-      
+      {/* Partner CTA Section */}
+      <PartnerCTA 
+        variant="banner"
+        headline="Love Our Process? Offer It to Your Clients"
+        subtext="Partner with us to deliver this proven methodology under your brand. White-label development from a team you can trust."
+      />
 
       <Contact />
     </PageLayout>;

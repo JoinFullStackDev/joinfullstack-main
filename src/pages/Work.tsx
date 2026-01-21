@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { PageLayout } from '@/components/PageLayout';
 import { Contact } from '@/components/Contact';
+import { PartnerCTA } from '@/components/PartnerCTA';
 import { SEO } from '@/components/SEO';
 import { seoMetadata } from '@/lib/seo/metadata';
 import { getOrganizationSchema, getBreadcrumbSchema } from '@/lib/seo/schemas';
@@ -219,6 +220,15 @@ const Work = () => {
               <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Button>
           </Link>
+        </div>
+        
+        {/* Partner CTA */}
+        <div className="max-w-4xl mx-auto text-center mt-8">
+          <PartnerCTA 
+            variant="inline"
+            headline="Want results like these for your clients?"
+            subtext="Explore partnership opportunities"
+          />
         </div>
       </section>
 
