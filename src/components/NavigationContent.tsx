@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
 import {
   Accordion,
@@ -16,7 +16,6 @@ interface NavigationContentProps {
 
 export const NavigationContent = ({ isOpen, onNavigate }: NavigationContentProps) => {
   const itemsRef = useRef<HTMLDivElement>(null);
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (!itemsRef.current) return;
@@ -42,21 +41,17 @@ export const NavigationContent = ({ isOpen, onNavigate }: NavigationContentProps
     }
   }, [isOpen]);
 
-  const handleNavigation = (path: string) => {
-    navigate(path);
-    onNavigate();
-  };
-
   return (
     <div ref={itemsRef} className="flex flex-col space-y-2 mt-8">
       {/* Home */}
       <div className="nav-item">
-        <button
-          onClick={() => handleNavigation('/')}
-          className="w-full text-left text-4xl md:text-5xl font-bold py-4 hover:text-accent transition-colors"
+        <Link
+          to="/"
+          onClick={onNavigate}
+          className="block w-full text-left text-4xl md:text-5xl font-bold py-4 hover:text-accent transition-colors"
         >
           Home
-        </button>
+        </Link>
       </div>
 
       {/* Services Dropdown */}
@@ -67,48 +62,55 @@ export const NavigationContent = ({ isOpen, onNavigate }: NavigationContentProps
               Services
             </AccordionTrigger>
             <AccordionContent className="pl-6 space-y-3 pb-4">
-              <button
-                onClick={() => handleNavigation('/services/concept-framing')}
+              <Link
+                to="/services/concept-framing"
+                onClick={onNavigate}
                 className="block w-full text-left text-xl py-2 text-muted-foreground hover:text-accent transition-colors border-l-2 border-transparent hover:border-accent pl-4"
               >
                 Concept Framing
-              </button>
-              <button
-                onClick={() => handleNavigation('/services/product-strategy')}
+              </Link>
+              <Link
+                to="/services/product-strategy"
+                onClick={onNavigate}
                 className="block w-full text-left text-xl py-2 text-muted-foreground hover:text-accent transition-colors border-l-2 border-transparent hover:border-accent pl-4"
               >
                 Product Strategy
-              </button>
-              <button
-                onClick={() => handleNavigation('/services/product-validation')}
+              </Link>
+              <Link
+                to="/services/product-validation"
+                onClick={onNavigate}
                 className="block w-full text-left text-xl py-2 text-muted-foreground hover:text-accent transition-colors border-l-2 border-transparent hover:border-accent pl-4"
               >
                 Product Validation
-              </button>
-              <button
-                onClick={() => handleNavigation('/services/analysis-user-stories')}
+              </Link>
+              <Link
+                to="/services/analysis-user-stories"
+                onClick={onNavigate}
                 className="block w-full text-left text-xl py-2 text-muted-foreground hover:text-accent transition-colors border-l-2 border-transparent hover:border-accent pl-4"
               >
                 Analysis & User Stories
-              </button>
-              <button
-                onClick={() => handleNavigation('/services/build')}
+              </Link>
+              <Link
+                to="/services/build"
+                onClick={onNavigate}
                 className="block w-full text-left text-xl py-2 text-muted-foreground hover:text-accent transition-colors border-l-2 border-transparent hover:border-accent pl-4"
               >
                 Build
-              </button>
-              <button
-                onClick={() => handleNavigation('/services/qa')}
+              </Link>
+              <Link
+                to="/services/qa"
+                onClick={onNavigate}
                 className="block w-full text-left text-xl py-2 text-muted-foreground hover:text-accent transition-colors border-l-2 border-transparent hover:border-accent pl-4"
               >
                 QA
-              </button>
-              <button
-                onClick={() => handleNavigation('/services')}
+              </Link>
+              <Link
+                to="/services"
+                onClick={onNavigate}
                 className="block w-full text-left text-xl py-2 text-accent font-semibold hover:text-accent/80 transition-colors border-l-2 border-accent pl-4 mt-2"
               >
                 View All Services
-              </button>
+              </Link>
             </AccordionContent>
           </AccordionItem>
         </Accordion>
@@ -122,24 +124,27 @@ export const NavigationContent = ({ isOpen, onNavigate }: NavigationContentProps
               Work
             </AccordionTrigger>
             <AccordionContent className="pl-6 space-y-3 pb-4">
-              <button
-                onClick={() => handleNavigation('/work/fintech-lending-platform')}
+              <Link
+                to="/work/fintech-lending-platform"
+                onClick={onNavigate}
                 className="block w-full text-left text-xl py-2 text-muted-foreground hover:text-accent transition-colors border-l-2 border-transparent hover:border-accent pl-4"
               >
                 FinTech Lending Platform
-              </button>
-              <button
-                onClick={() => handleNavigation('/work/pharmacy-workflow')}
+              </Link>
+              <Link
+                to="/work/pharmacy-workflow"
+                onClick={onNavigate}
                 className="block w-full text-left text-xl py-2 text-muted-foreground hover:text-accent transition-colors border-l-2 border-transparent hover:border-accent pl-4"
               >
                 Pharmacy Workflow Automation
-              </button>
-              <button
-                onClick={() => handleNavigation('/work')}
+              </Link>
+              <Link
+                to="/work"
+                onClick={onNavigate}
                 className="block w-full text-left text-xl py-2 text-accent font-semibold hover:text-accent/80 transition-colors border-l-2 border-accent pl-4 mt-2"
               >
                 All Case Studies
-              </button>
+              </Link>
             </AccordionContent>
           </AccordionItem>
         </Accordion>
@@ -153,18 +158,20 @@ export const NavigationContent = ({ isOpen, onNavigate }: NavigationContentProps
               About
             </AccordionTrigger>
             <AccordionContent className="pl-6 space-y-3 pb-4">
-              <button
-                onClick={() => handleNavigation('/about/process')}
+              <Link
+                to="/about/process"
+                onClick={onNavigate}
                 className="block w-full text-left text-xl py-2 text-muted-foreground hover:text-accent transition-colors border-l-2 border-transparent hover:border-accent pl-4"
               >
                 Our Process
-              </button>
-              <button
-                onClick={() => handleNavigation('/about/team')}
+              </Link>
+              <Link
+                to="/about/team"
+                onClick={onNavigate}
                 className="block w-full text-left text-xl py-2 text-muted-foreground hover:text-accent transition-colors border-l-2 border-transparent hover:border-accent pl-4"
               >
                 Team
-              </button>
+              </Link>
             </AccordionContent>
           </AccordionItem>
         </Accordion>
@@ -172,12 +179,13 @@ export const NavigationContent = ({ isOpen, onNavigate }: NavigationContentProps
 
       {/* Contact */}
       <div className="nav-item">
-        <button
-          onClick={() => handleNavigation('/contact')}
-          className="w-full text-left text-4xl md:text-5xl font-bold py-4 hover:text-accent transition-colors"
+        <Link
+          to="/contact"
+          onClick={onNavigate}
+          className="block w-full text-left text-4xl md:text-5xl font-bold py-4 hover:text-accent transition-colors"
         >
           Contact
-        </button>
+        </Link>
       </div>
 
       {/* Color Picker */}

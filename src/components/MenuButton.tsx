@@ -1,13 +1,15 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 
 interface MenuButtonProps {
   isOpen: boolean;
   onClick: () => void;
+  className?: string;
 }
 
-export const MenuButton = ({ isOpen, onClick }: MenuButtonProps) => {
+export const MenuButton = ({ isOpen, onClick, className }: MenuButtonProps) => {
   const line1Ref = useRef<HTMLDivElement>(null);
   const line2Ref = useRef<HTMLDivElement>(null);
   const line3Ref = useRef<HTMLDivElement>(null);
@@ -57,7 +59,7 @@ export const MenuButton = ({ isOpen, onClick }: MenuButtonProps) => {
       variant="ghost"
       size="icon"
       onClick={onClick}
-      className="h-11 w-11 hover:bg-accent/50"
+      className={cn("h-11 w-11 hover:bg-accent/50", className)}
       aria-label={isOpen ? 'Close menu' : 'Open menu'}
     >
       <div className="flex flex-col items-center justify-center w-6 h-6 space-y-1.5">
